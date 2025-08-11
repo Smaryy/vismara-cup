@@ -1,0 +1,949 @@
+@font-face {
+    font-family: 'Watford'; 
+    src: url('../assets/font/BCTUR.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+    font-weight: light;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: none; /* Nessuno sfondo */
+  padding: 10px 0;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Limita la larghezza massima */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-item {
+  flex: 1; /* Distribuisce gli elementi su tutto lo schermo */
+  text-align: center;
+}
+
+.navbar-item a {
+  text-decoration: none;
+  color: black; /* Colore nero */
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  transition: transform 0.3s ease, font-size 0.3s ease; /* Effetto di ingrandimento */
+}
+
+.navbar-item a:hover {
+  transform: scale(1.2); /* Ingrandisce il testo */
+  font-size: 1.4rem; /* Aumenta la dimensione del font */
+}
+  
+  /* HERO SECTION */
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    overflow: hidden; /* Evita lo scroll orizzontale */;
+
+  }
+  
+  .tennis-ball {
+    width: 50rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: 10rem;
+    z-index: 1;
+    font-weight: bold;
+    background-color: white;
+    margin-top: 12rem;
+    font-family: "BCTUR", sans-serif;
+
+  }
+
+  .hero-centered {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-centered > .col-3 {
+    flex: 0 0 25%;
+  }
+  .hero-centered > .col-6 {
+    flex: 0 0 50%;
+    text-align: center;
+  }
+  
+  /* SEZIONE STORIA */
+  .storia {
+    padding: 100px 50px;
+    overflow: visible; /* Assicurati che la sezione sopra non tagli la racchetta */
+    height: auto; /* Permette alla sezione di adattarsi al contenuto */
+    padding-bottom: 100px; /* Aggiunge spazio sotto per evitare sovrapposizioni */
+    position: relative; /* Assicurati che la sezione sopra non interferisca */  
+  }
+  
+  .storia-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .text {
+    flex: 0.8; /* imposta la lunghezza della sezione */
+    text-align: justify;
+  }
+  
+  .text h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: "BCTUR", sans-serif;
+  }
+  
+  .descrizione {
+    font-size: 1.5rem;
+    min-height: 50px;
+    margin-bottom: 30px;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* CTA - Scopri di più */
+  .cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  .cta .line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: width 0.4s ease;
+  }
+  
+  .cta:hover .line {
+    width: 100%;
+  }
+
+
+  .arrow {
+    transition: transform 0.3s ease;
+    margin-right: 10px; /* Aggiunto margine per evitare che venga tagliata */
+  }
+  
+  .cta:hover .arrow {
+    transform: translateX(5px);
+  }
+  
+  /* PLACEHOLDER per immagine a destra */
+  .fotocampo {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Limita la larghezza massima */
+  }
+  
+
+  /* SEZIONE FRASI */
+  .frasi-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .frasi-wrapper {
+    width: 450%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 200px;
+    padding-left: 100vw; /* Start off-screen to the right */
+  }
+  
+  .frase {
+    font-size: 5rem;
+    opacity: 0.3;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: "BCTUR", sans-serif;
+    font-weight: bold;
+  }
+  
+  .trigger-container {
+    height: 50vh; /* Controlla la durata dello scroll */
+  }
+
+  /* SPACCIO DI SCROLL */
+.scroll-space {
+  height: 50vh; /* o quanto serve per completare lo scroll */
+}
+
+/* SEZIONE GALLERY */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.gallery-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 40px 0 40px 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image-box {
+  background-color: white;
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-box.up {
+  transform: translateY(-80px);
+}
+
+.parallax-img {
+    height: 120%; /* aumenta altezza per dare spazio al movimento */
+    overflow: hidden;
+    position: relative;
+}
+
+.image-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* SEZIUONE MERCH */
+
+.merch-section {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+.merch-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.3) 70%);
+  z-index: 1;
+}
+
+.merch-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 60px;
+  opacity: 0;
+  transform: translateY(50px);
+  font-size: 1.5rem;
+}
+
+.merch-content h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+  font-family: "BCTUR", sans-serif;
+}
+
+.merch-button {
+  position: relative;
+  display: inline-flex;
+  max-width: max-content; /* opzione per limitare */
+  align-items: center;
+  padding: 12px 24px;
+  background-color: transparent; /* inizialmente trasparente */
+  border: 2px solid white;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+
+.merch-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0;
+  background-color: white;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.merch-button:hover::before {
+  width: 100%;
+}
+
+.merch-button:hover {
+  color: black;
+}
+
+
+.merch-button .arrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.merch-button:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* CONTATTI */
+.contact-section {
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-line {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  position: relative;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.end {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  font-family: 'BCTUR', sans-serif;
+}
+
+
+.contact-line:hover {
+  opacity: 1;
+}
+
+.contact-line img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.contact-line:hover img {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .contact-line {
+    font-size: 6vw;
+    flex-direction: column;
+  }
+
+  .contact-line img {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+/* SEZIONE FINALE */
+.vismara-cup {
+  background: #000;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.vismara-cup h1 {
+  font-size: 15rem;
+  line-height: 1.1;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+}
+
+#cup-text {
+  color: orange;
+}
+
+.storia-dettagliata-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 20px 40px 20px;
+}
+
+.storia-dettagliata h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: "BCTUR", sans-serif;
+}
+
+.img-storia-dettagliata {
+  max-width: 100%;
+  border-radius: 16px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.storia-dettagliata-descrizione {
+  margin-top: 28px;
+  font-size: 1.5rem;
+  min-height: 50px;
+  margin-bottom: 30px;
+  font-family: "Inter", sans-serif;
+}
+
+/* SEZIONE STORIA SIDE */
+.storia-side-section {
+  width: 100%;
+  padding: 60px 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.storia-side-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 60px;
+  padding: 0 20px;
+}
+
+.storia-side-text {
+  flex: 1;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.storia-side-text h3 {
+  font-size: 2.5rem;
+  font-family: "BCTUR", sans-serif;
+  margin-bottom: 18px;
+}
+
+.storia-side-text p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.storia-side-img-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.storia-side-img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .storia-side-container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+  }
+  .storia-side-text,
+  .storia-side-img-wrapper {
+    justify-content: center;
+    text-align: center;
+    transform: none;
+  }
+  .storia-side-img {
+    margin: 0 auto;
+  }
+}
+
+/* SEZIONE GRIGLIATA */
+.grigliata-section {
+  width: 100vw;
+  padding: 80px 0 60px 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.grigliata-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.grigliata-testo {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  opacity: 0;
+  transition: opacity 1.2s;
+  text-align: center;
+}
+
+.grigliata-testo.visible {
+  opacity: 1;
+}
+
+.grigliata-testo h3 {
+  font-size: 2.3rem;
+  font-family: "BCTUR", sans-serif;
+  margin-bottom: 18px;
+}
+
+.grigliata-testo p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.grigliata-horizontal-scroll {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  height: 350px;
+  /* nasconde la scrollbar su Chrome/Safari */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.grigliata-horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.grigliata-img-track {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  height: 100%;
+  align-items: center;
+  width: 2100px; /* larghezza totale delle immagini + gap per 5 immagini */
+  transition: transform 0.6s cubic-bezier(.77,0,.18,1);
+}
+
+.grigliata-img {
+  width: 400px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grigliata-img {
+    width: 80vw;
+    height: 40vw;
+    min-width: 220px;
+    min-height: 160px;
+  }
+  .grigliata-img-track {
+    width: 420vw;
+  }
+  .grigliata-container {
+    gap: 30px;
+  }
+}
+
+/* SEZIONE ENTRA IN FAMIGLIA */
+.entra-famiglia-section {
+  position: relative;
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.entra-famiglia-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.entra-famiglia-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(0,0,0,0.7) 60%, rgba(255,124,0,0.3) 100%);
+  z-index: 1;
+}
+
+.entra-famiglia-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 70px 20px 70px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.entra-famiglia-content h2 {
+  font-size: 3rem;
+  font-family: "BCTUR", sans-serif;
+  margin-bottom: 12px;
+}
+
+.entra-famiglia-content p {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.entra-famiglia-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #ff7c00;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 16px 38px;
+  border-radius: 32px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  border: none;
+  outline: none;
+}
+
+.entra-famiglia-btn:hover {
+  background: #fff;
+  color: #ff7c00;
+  transform: scale(1.05);
+}
+
+.entra-famiglia-btn i {
+  font-size: 1.5rem;
+}
+
+/* Custom Outline Button */
+.custom-outline-btn {
+  display: inline-block;
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  padding: 12px 32px;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  box-shadow: none;
+}
+
+.custom-outline-btn:hover,
+.custom-outline-btn:focus {
+  background: #ff7c00;
+  color: #fff;
+  border-color: #ff7c00;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 576px) {
+  html, body {
+    font-size: 13px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-top: 2.5rem;
+  }
+
+  .tennis-ball {
+    width: 7rem;
+    min-width: 60px;
+  }
+
+  .storia, .py-5 {
+    padding: 24px 0 !important;
+  }
+
+  .storia-content,
+  .gallery .row,
+  .grigliata-container,
+  .contact-section {
+    gap: 16px !important;
+  }
+
+  .text h2,
+  .storia-dettagliata h2,
+  .gallery-title,
+  .entra-famiglia-content h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 12px;
+  }
+
+  .descrizione,
+  .storia-dettagliata-descrizione,
+  .grigliata-testo p,
+  .storia-side-text p,
+  .entra-famiglia-content p,
+  .contact-line,
+  .end {
+    font-size: 0.98rem !important;
+    margin-bottom: 12px;
+  }
+
+  .image-box {
+    width: 90vw;
+    height: 38vw;
+    min-width: 120px;
+    min-height: 90px;
+    max-width: 98vw;
+    padding: 4px;
+  }
+
+  .gallery {
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .gallery-title {
+    margin: 18px 0 18px 0;
+  }
+
+  .grigliata-img {
+    width: 90vw;
+    height: 28vw;
+    min-width: 100px;
+    min-height: 60px;
+  }
+
+  .grigliata-horizontal-scroll {
+    height: 110px;
+  }
+
+  .entra-famiglia-content {
+    padding: 18px 4px 18px 4px;
+    gap: 10px;
+    max-width: 99vw;
+  }
+
+  .entra-famiglia-btn,
+  .custom-outline-btn,
+  .btn-lg {
+    font-size: 1rem !important;
+    padding: 8px 18px !important;
+    border-radius: 0.4rem !important;
+  }
+
+  .contact-section {
+    padding: 18px 4px;
+    gap: 10px;
+  }
+
+  .contact-line img {
+    width: 38px;
+    height: 28px;
+  }
+
+  .vismara-cup h1 {
+    font-size: 1.5rem;
+  }
+
+  footer p {
+    font-size: 0.8rem !important;
+    padding: 8px 0;
+  }
+
+  /* Responsive frasi orizzontali */
+  .frasi-section {
+    height: 40vw;
+    min-height: 120px;
+    max-height: 180px;
+    padding: 0;
+  }
+  .frasi-wrapper {
+    width: 800vw;
+    height: 40vw;
+    gap: 40vw;
+    padding-left: 0;
+    align-items: flex-end;
+  }
+  .frase {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    opacity: 0.4;
+  }
+
+  /* --- RESPONSIVE SEZIONE MERCH --- */
+  .merch-section {
+    height: auto;
+    min-height: 320px;
+    flex-direction: column;
+    padding: 0;
+  }
+  .merch-section img,
+  .overlay {
+    min-height: 320px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .merch-content {
+    margin-left: 0;
+    max-width: 98vw;
+    padding: 18px 8px;
+    font-size: 1.05rem;
+    gap: 14px;
+    align-items: center;
+    text-align: center;
+  }
+  .merch-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .merch-button {
+    font-size: 1rem;
+    padding: 10px 18px;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+  }
+
+  /* Centra le foto della gallery su mobile */
+  .gallery .row,
+  .container .row {
+    justify-content: center !important;
+    text-align: center;
+  }
+  .image-box {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+}
+
+
